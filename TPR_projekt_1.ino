@@ -3,8 +3,7 @@
 * Author: Wiktor Nordström
 * Date: 2024-10-25
 * Description: This project uses a ds3231 to measure time and displays the time to an 1306 oled display,
-* Further, it measures temprature with a analog temprature module and displays a mapped value to a 9g-servo-motor 
-* Additionally it maps the temprature value to a light to show if its too hot or cold in a room.
+* Further, it measures temprature with a analog temprature module and displays a mapped value to a led ring
 */
 
 // Include Libraries
@@ -38,7 +37,7 @@ void setup() {
   rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   u8g.setFont(u8g_font_unifont);
   ws2812fx.setBrightness(120);  // Set the LED’s overall brightness. 0=strip off, 255=strip at full intensity
-  ws2812fx.setSpeed(1000);       // Set the animation speed. 10=very fast, 5000=very slow
+  ws2812fx.setSpeed(999);       // Set the animation speed. 10=very fast, 5000=very slow
   ws2812fx.setMode(3);
 }
 
