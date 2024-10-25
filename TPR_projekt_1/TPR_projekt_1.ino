@@ -93,7 +93,7 @@ void oledWrite(int x, int y, String text) {
 /*
 *this function takes the temprature value and maps it to a colour spectrum on the ring light
 *Parameters: - none
-*Returns: void
+*Returns: void.
 */
 void ledWrite() {
 
