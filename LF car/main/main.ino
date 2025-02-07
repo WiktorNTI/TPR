@@ -4,9 +4,9 @@ const int relayLeft = 10;   // Relay for the left motor
 const int relayRight = 9;   // Relay for the right motor
 
 // Define IR sensor pins
-const int sensorLeft = 2;   // Left IR sensor
+const int sensorLeft = 4;   // Left IR sensor
 const int sensorMiddle = 3; // Middle IR sensor
-const int sensorRight = 4;  // Right IR sensor
+const int sensorRight = 2;  // Right IR sensor
 
 void setup() {
   // Set relay pins as outputs
@@ -32,14 +32,17 @@ void loop() {
   if (middleSensor == LOW) {
     // Move forward when the middle sensor detects the line
     moveMotors(HIGH, HIGH);
-  } else if (leftSensor == LOW) {
+  } else if (leftSensor == LOW & middleSensor == HIGH & rightSensor == HIGH) {
     // Turn left by running the right motor only
     moveMotors(LOW, HIGH);
-  } else if (rightSensor == LOW) {
+  } else if (rightSensor == LOW & middleSensor == HIGH & leftSensor == HIGH) {
     // Turn right by running the left motor only
     moveMotors(HIGH, LOW);
-  } else {
+  } else if (rightSensor == HIGH & middleSensor == HIGH & leftSensor == HIGH){
     // Stop if no sensor detects the line
+    moveMotors(LOW, LOW);
+  } else if (rightSensor == LOW & leftSensor == LOW){
+    // Stop if both side sensors detects the line
     moveMotors(LOW, LOW);
   }
 }
