@@ -1,4 +1,10 @@
-// Define motor control pins
+/*
+* Name: Line-Following car
+* Author: Wiktor Nordström
+* Date: 2025-02-7
+* Description: This project uses IR sensors too detect and follow a line on the ground, 
+the sensors send Low or High to the relay and it powers up the motors.
+*/
 // Define relay control pins
 const int relayLeft = 10;   // Relay for the left motor
 const int relayRight = 9;   // Relay for the right motor
